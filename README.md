@@ -8,7 +8,7 @@ You will need to do two things:
     
     Example:
       
-      >C:\Python\backuptools\file_to_restore.bak
+      C:\Python\backuptools\file_to_restore.bak
   
   2. Fill out the information in config.py. You will need:
       + Server Name
@@ -22,7 +22,7 @@ Run the program by opening a command prompt (with elevated permissions) in the p
     
     Example:
       
-      >python backuptool.py -b
+      python backuptool.py -b
     
    You will be prompted to supply the filename.
    
@@ -30,7 +30,7 @@ Run the program by opening a command prompt (with elevated permissions) in the p
     
     Example:
       
-      >python backuptool.py -r
+      python backuptool.py -r
     
    You will be prompted to supply the filename and restored Database's name. Make sure you include the .bak extension with the file name.
 

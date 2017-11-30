@@ -15,13 +15,13 @@ You will need to do two things:
 Run the program by opening a command prompt (with elevated permissions) in the projects directory. Currently there are two commands you can use:
 
   1. -b: Backup
-    Example:
+    \nExample:
       >python backuptool.py -b
-    You will be prompted to supply the filename.
+    \nYou will be prompted to supply the filename.
   2. -r: Restore
-    Example:
+    \nExample:
       >python backuptool.py -r
-    You will be prompted to supply the filename and restored Database's name. Make sure you include the .bak extension with the file name.
+    \nYou will be prompted to supply the filename and restored Database's name. Make sure you include the .bak extension with the file name.
 
 There is also a help.txt file if you are curious about more, or you can use the -h flag to view help from the command line.
 

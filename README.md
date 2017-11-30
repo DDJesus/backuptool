@@ -4,13 +4,17 @@ CLI Tool used to quickly back-up/restore Microsoft SQL Server Database's.
 
 You will need to do two things:
 
-  1. If restoring a backup, place the backup file in the projects working directory. Example:
-      C:\Python\backuptools\file_to_restore.bak
+  1. If restoring a backup, place the backup file in the projects working directory.
+    
+    Example:
+      
+      >C:\Python\backuptools\file_to_restore.bak
+  
   2. Fill out the information in config.py. You will need:
-    a. Server Name
-    b. If backing up a database, the name of the database you wish to back up
-    c. Username of SQL Server user with permissions to backup/restore
-    d. Password of User
+      + Server Name
+      + If backing up a database, the name of the database you wish to back up
+      + Username of SQL Server user with permissions to backup/restore
+      + Password of User
     
 Run the program by opening a command prompt (with elevated permissions) in the projects directory. Currently there are two commands you can use:
 
@@ -20,14 +24,15 @@ Run the program by opening a command prompt (with elevated permissions) in the p
       
       >python backuptool.py -b
     
-    You will be prompted to supply the filename.
+   You will be prompted to supply the filename.
+   
   2. -r: Restore
     
     Example:
       
       >python backuptool.py -r
     
-    You will be prompted to supply the filename and restored Database's name. Make sure you include the .bak extension with the file name.
+   You will be prompted to supply the filename and restored Database's name. Make sure you include the .bak extension with the file name.
 
 There is also a help.txt file if you are curious about more, or you can use the -h flag to view help from the command line.
 

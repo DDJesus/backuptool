@@ -1,2 +1,28 @@
 # backuptool
-PYSQL  Tool meant to automate the Database restoration process with Python.  This tool was designed as an automation tool for restoring Microsoft SQL Server Databases. The full script can be found in the PYSQL.py file, but the tool itself can be found in Dist/PYSQL.exe. Download the .zip file with all contents and run the .exe, a command line interface will pop up and prompt questions through each process.  So far this is a very standard script with not a lot of customization. The program is meant to:      Locate the specified backup file on C:\      This means a User can place the .bak file on their Desktop and the program will find it and load it into a variable for later use      Copy the .bak file from the original location to the SQL Server standard BACKUP folder.      Current code utilizes the glob library to wildcard this path. In it's current form, it will not locate a custom Backup folder, only the standard Backup folder path. It also only registers the first path it finds, so if there are multiple SQL instances on one server, then it may not register the intended path.         "C:\Program Files\Microsoft SQL Server[wildcard for version number]\MSSQL\Backup"     Working on changing the code to give it the ability to find the Backup folder used by the User no matter where it is at.      Restore the Database to the User specified SQL Server instance.      Utilizes the pyodbc library to make connections and run queries directly.     User must supply the SQL Instance name, the name of the new Database, and whether to use Windows or SQL Authentication to connect.         Windows Authentication: Connects using the current Windows User account. If the user has insufficient permissions to update SQL at any point, the program will error out and exit.         SQL Authentication: Prompts the user to enter the Username and Password of a SQL Server account. If the user has insufficient permissions to update SQL at any point, the program will error out and exit.     Runs a RESTORE [database] query that includes .mdf, .ndf, and .ldf files in the process. Names each of the files after the newly restored Database.      Enter clean-up mode.      So far this function is open to changes, but it's primary (and only) goal right now is to set a SQL user account to the db_owner group in SQL. Program will prompt the User to enter the SQL user account then continue.  The above code confirms working on SQL Server 2008-2012 R2, have yet to test on 2014. Will refine code and README as things progress.
+
+CLI Tool used to quickly back-up/restore Microsoft SQL Server Database's.
+
+You will need to do two things:
+
+  1. If restoring a backup, place the backup file in the projects working directory. Example:
+      C:\Python\backuptools\file_to_restore.bak
+  2. Fill out the information in config.py. You will need:
+    a. Server Name
+    b. If backing up a database, the name of the database you wish to back up
+    c. Username of SQL Server user with permissions to backup/restore
+    d. Password of User
+    
+Run the program by opening a command prompt (with elevated permissions) in the projects directory. Currently there are two commands you can use:
+
+  1. -b: Backup
+    Example:
+      >python backuptool.py -b
+    You will be prompted to supply the filename.
+  2. -r: Restore
+    Example:
+      >python backuptool.py -r
+    You will be prompted to supply the filename and restored Database's name. Make sure you include the .bak extension with the file name.
+
+There is also a help.txt file if you are curious about more, or you can use the -h flag to view help from the command line.
+
+I hope to scope this out to include MySQL, Postgresql, and other RDBMS, but for now it only does MSSQL. I know it also works on 2008 and 2012 SQL Server, have yet to test on 2014+. Hope to continue building on this, just depends on how much time I have free from work.

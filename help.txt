@@ -1,0 +1,6 @@
+  
+  Backuptool.py Usage
+  Arguments:
+	-h : Help command. Shows usage information
+	-b : Backup. Must specify file name.
+	-r : Restore. Must specify file name. File must be placed in the current directory.
